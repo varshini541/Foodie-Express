@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Foodie Express</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#f8f9fb;
+}
+
+/* NAVBAR */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 25px;
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(10px);
+  background:rgba(255,122,0,0.85);
+  color:white;
+}
+
+.navbar h2{
+  margin:0;
+}
+
+.navbar input{
+  padding:8px 12px;
+  border-radius:20px;
+  border:none;
+  outline:none;
+  width:200px;
+}
+
+/* BANNER */
+
+.banner{
+  margin:20px;
+  padding:25px;
+  text-align:center;
+  background:linear-gradient(135deg,#ff7a00,#ffb347);
+  color:white;
+  border-radius:15px;
+  font-size:18px;
+  font-weight:600;
+}
+
+/* CATEGORIES */
+
+.categories{
+  display:flex;
+  overflow-x:auto;
+  padding:10px 20px;
+}
+
+.categories button{
+  margin-right:12px;
+  padding:8px 18px;
+  border-radius:25px;
+  border:none;
+  background:white;
+  cursor:pointer;
+  font-weight:500;
+  box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+.categories button:hover{
+  background:#ff7a00;
+  color:white;
+}
+
+/* GRID */
+
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:25px;
+  padding:20px;
+}
+
+/* CARD */
+
+.card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* IMAGE */
+
+.image-container{
+  position:relative;
+}
+
+.image-container img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+.overlay{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  background:white;
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:12px;
+}
+
+/* TEXT */
+
+.card h3{
+  margin:10px;
+}
+
+.card p{
+  margin:0 10px 10px;
+  color:#777;
+}
+
+/* CART BUTTON */
+
+.cart-button{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#ff7a00;
+  color:white;
+  padding:15px 20px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+.cart-button:hover{
+  background:#e56700;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+<h2>Foodie Express</h2>
+<input type="text" id="search" placeholder="Search restaurants...">
+</div>
+
+<!-- BANNER -->
+
+<div class="banner">
+🔥 50% OFF on First Order
+</div>
+
+<!-- CATEGORIES -->
+
+<div class="categories">
+<button onclick="filterCategory('All',this)">All</button>
+<button onclick="filterCategory('Beverages',this)">Beverages</button>
+<button onclick="filterCategory('Soups',this)">Soups</button>
+<button onclick="filterCategory('Starters',this)">Starters</button>
+<button onclick="filterCategory('Biryani',this)">Biryani</button>
+<button onclick="filterCategory('Fast Food',this)">Fast Food</button>
+<button onclick="filterCategory('Curries',this)">Curries</button>
+<button onclick="filterCategory('Drinks',this)">Drinks</button>
+<button onclick="filterCategory('Special Treats',this)">Special Treats</button>
+</div>
+
+<!-- RESTAURANT LIST -->
+
+<div id="restaurantList" class="container"></div>
+
+<!-- CART BUTTON -->
+
+<a href="res.html" class="cart-button">Click Here</a>
+
+<script>
+
+const restaurants=[
+{
+name:"Beverages",
+rating:4.5,
+time:"30 mins",
+category:"Beverages",
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5iFkELQbn0oJqPsXWq1ikrHQ9o_5SHJ10Uw&s"
+},
+{
+name:"Soup Corner",
+rating:4.3,
+time:"20 mins",
+category:"Soups",
+img:"https://i0.wp.com/cookingwithsapana.com/wp-content/uploads/2016/12/carrot-soup-18.webp"
+},
+{
+name:"Starters Point",
+rating:4.4,
+time:"25 mins",
+category:"Starters",
+img:"https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600"
+},
+{
+name:"Biryani House",
+rating:4.6,
+time:"35 mins",
+category:"Biryani",
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwaF6-1Auf1DuOXo9FhalxTrx1j-BnkoOu4A&s"
+},
+{
+name:"Fast Food Hub",
+rating:4.2,
+time:"15 mins",
+category:"Fast Food",
+img:"https://images.unsplash.com/photo-1550547660-d9450f859349?w=600"
+},
+{
+name:"Curry Kitchen",
+rating:4.5,
+time:"30 mins",
+category:"Curries",
+img:"https://api.campbellsmeat.com/wp-content/uploads/2021/10/1637684032Top10IndianCurries578x370px-1.jpg"
+},
+{
+name:"Cool Drinks Hub",
+rating:4.1,
+time:"10 mins",
+category:"Drinks",
+img:"https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600"
+},
+{
+name:"Special Treats",
+rating:4.7,
+time:"40 mins",
+category:"Special Treats",
+img:"https://www.foodiniclub.co.uk/wp-content/uploads/2019/01/treattime.jpg"
+}
+];
+
+function displayRestaurants(data){
+const container=document.getElementById("restaurantList");
+container.innerHTML="";
+
+data.forEach(r=>{
+container.innerHTML+=`
+<div class="card">
+<div class="image-container">
+<img src="${r.img}">
+<div class="overlay">⭐ ${r.rating}</div>
+</div>
+<h3>${r.name}</h3>
+<p>⏱️ ${r.time}</p>
+</div>
+`;
+});
+}
+
+displayRestaurants(restaurants);
+
+/* SEARCH */
+
+document.getElementById("search").addEventListener("input",function(){
+
+const value=this.value.toLowerCase();
+
+const filtered=restaurants.filter(r =>
+r.name.toLowerCase().includes(value)
+);
+
+displayRestaurants(filtered);
+
+});
+
+/* FILTER */
+
+function filterCategory(cat,btn){
+
+document.querySelectorAll(".categories button")
+.forEach(b=>b.classList.remove("active"));
+
+btn.classList.add("active");
+
+if(cat==="All"){
+displayRestaurants(restaurants);
+}
+else{
+
+const filtered=restaurants.filter(r=>r.category===cat);
+
+displayRestaurants(filtered);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

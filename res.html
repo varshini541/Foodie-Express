@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Foodie Express Menu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:#ffffff;
+    color:#333;
+}
+
+/* Header */
+.header{
+    text-align:center;
+    padding:35px;
+    background:linear-gradient(to right,#ff7a00,#ffa94d);
+    color:white;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.header h1{
+    margin:0;
+    font-size:40px;
+}
+
+.header p{
+    margin-top:5px;
+}
+
+/* Grid */
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    padding:30px;
+}
+
+/* Card */
+.menu-card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    border-top:5px solid #ff7a00;
+    transition:0.3s;
+}
+
+.menu-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.2);
+}
+
+.menu-card h2{
+    text-align:center;
+    color:#ff7a00;
+    border-bottom:2px solid #ffe0c2;
+    padding-bottom:10px;
+}
+
+/* Dish */
+.dish{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px dashed #ddd;
+}
+
+.dish:last-child{
+    border-bottom:none;
+}
+
+.price{
+    color:#ff7a00;
+    font-weight:600;
+}
+
+/* Bottom Button (Added) */
+.bottom-btn{
+    display:block;
+    width:200px;
+    margin:40px auto;
+    text-align:center;
+    background:#ff7a00;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+}
+
+.bottom-btn:hover{
+    background:#e66a00;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>Foodie Express</h1>
+<p>Fresh Taste • Fast Delivery • Happy Moments</p>
+</div>
+
+<div class="menu-grid">
+
+<!-- Soups -->
+<div class="menu-card">
+<h2>Soups</h2>
+<div class="dish"><span>Mutton Soup</span><span class="price">₹150</span></div>
+<div class="dish"><span>Chicken Shorba</span><span class="price">₹150</span></div>
+<div class="dish"><span>Ninetysix Chicken Soup</span><span class="price">₹150</span></div>
+<div class="dish"><span>Hot & Sour Soup</span><span class="price">₹120</span></div>
+<div class="dish"><span>Crab & Pepper Soup</span><span class="price">₹160</span></div>
+</div>
+
+<!-- Starters -->
+<div class="menu-card">
+<h2>Starters</h2>
+<div class="dish"><span>Shawarma Roll</span><span class="price">₹70</span></div>
+<div class="dish"><span>Special Shawarma</span><span class="price">₹90</span></div>
+<div class="dish"><span>Mexican Shawarma</span><span class="price">₹70</span></div>
+<div class="dish"><span>Grilled Chicken</span><span class="price">₹300</span></div>
+<div class="dish"><span>Barbeque Chicken</span><span class="price">₹300</span></div>
+<div class="dish"><span>Tandoori Chicken</span><span class="price">₹260</span></div>
+<div class="dish"><span>Paneer Tikka</span><span class="price">₹170</span></div>
+<div class="dish"><span>Veg Manchurian</span><span class="price">₹150</span></div>
+<div class="dish"><span>Chicken 65</span><span class="price">₹180</span></div>
+</div>
+
+<!-- Biryani -->
+<div class="menu-card">
+<h2>Biryani</h2>
+<div class="dish"><span>Chicken Biryani</span><span class="price">₹260</span></div>
+<div class="dish"><span>Chicken Dum Biryani</span><span class="price">₹300</span></div>
+<div class="dish"><span>Fry Piece Biryani</span><span class="price">₹280</span></div>
+<div class="dish"><span>Paneer Biryani</span><span class="price">₹250</span></div>
+<div class="dish"><span>Mushroom Biryani</span><span class="price">₹260</span></div>
+<div class="dish"><span>Prawn Biryani</span><span class="price">₹400</span></div>
+<div class="dish"><span>Fish Biryani</span><span class="price">₹350</span></div>
+</div>
+
+<!-- Fast Food -->
+<div class="menu-card">
+<h2>Fast Food</h2>
+<div class="dish"><span>Pizza</span><span class="price">₹200</span></div>
+<div class="dish"><span>Burger</span><span class="price">₹280</span></div>
+<div class="dish"><span>Noodles</span><span class="price">₹150</span></div>
+<div class="dish"><span>Fried Rice</span><span class="price">₹270</span></div>
+<div class="dish"><span>Chicken Noodles</span><span class="price">₹300</span></div>
+</div>
+
+<!-- Rotis & Curries -->
+<div class="menu-card">
+<h2>Rotis & Curries</h2>
+<div class="dish"><span>Butter Chicken</span><span class="price">₹290</span></div>
+<div class="dish"><span>Chicken Curry</span><span class="price">₹230</span></div>
+<div class="dish"><span>Chicken Kadai</span><span class="price">₹240</span></div>
+<div class="dish"><span>Chicken Tikka Masala</span><span class="price">₹230</span></div>
+<div class="dish"><span>Paneer Curry</span><span class="price">₹140</span></div>
+<div class="dish"><span>Dal Tadka</span><span class="price">₹210</span></div>
+<div class="dish"><span>Chana Masala</span><span class="price">₹190</span></div>
+</div>
+
+<!-- Cool Drinks -->
+<div class="menu-card">
+<h2>Cool Drinks</h2>
+<div class="dish"><span>Pepsi</span><span class="price">₹50</span></div>
+<div class="dish"><span>Limca</span><span class="price">₹40</span></div>
+<div class="dish"><span>Pink Colada</span><span class="price">₹130</span></div>
+</div>
+
+<!-- Beverages -->
+<div class="menu-card">
+<h2>Beverages</h2>
+<div class="dish"><span>Double Chocolate Shake</span><span class="price">₹150</span></div>
+<div class="dish"><span>Ice Tea</span><span class="price">₹100</span></div>
+<div class="dish"><span>The Hulk</span><span class="price">₹250</span></div>
+<div class="dish"><span>Espresso</span><span class="price">₹200</span></div>
+</div>
+
+<!-- Specials -->
+<div class="menu-card">
+<h2>Specials</h2>
+<div class="dish"><span>Crab Curry Extra Masala</span><span class="price">₹800</span></div>
+<div class="dish"><span>Special Fish & Prawn Curry</span><span class="price">₹400</span></div>
+</div>
+
+</div>
+
+<!-- Bottom Button Added -->
+<a href="cart1.html" class="bottom-btn">🛒 View Cart</a>
+
+</body>
+</html>

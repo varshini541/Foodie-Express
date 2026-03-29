@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FoodieExpress - Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+font-family:Arial;
+background:#ff7a00;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.login-box{
+background:white;
+padding:40px;
+border-radius:10px;
+width:300px;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#ff7a00;
+color:white;
+border:none;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+<h1>🍔 FoodieExpress</h1>
+
+<input type="text" placeholder="Username">
+<input type="tel" placeholder="Mobile Number">
+
+<button onclick="goOTP()">Get OTP</button>
+</div>
+
+<script>
+function goOTP(){
+window.location.href="otp.html";
+}
+</script>
+
+</body>
+</html>
